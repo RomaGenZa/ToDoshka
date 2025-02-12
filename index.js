@@ -4,6 +4,9 @@ const input = document.createElement('input');
 const block = document.createElement('div');
 const btnAdd = document.createElement('button');
 const btnDelete = document.createElement('button');
+const btnFirst = document.createElement('button');
+const placeholder = document.createElement('div');
+const img = document.createElement('img');
 
 head.classList.add('list');
 head.textContent = 'Сегодняшний список';
@@ -20,11 +23,11 @@ section.append(block);
 
 btnAdd.classList.add('button_add');
 btnAdd.textContent = 'Добавить';
-section.append(btnAdd);
+block.append(btnAdd);
 
 btnDelete.classList.add('delet_basket');
 btnDelete.textContent ='Удалить';
-section.append(btnDelete);
+block.append(btnDelete);
 
 function createSection() {
   const newSection = section.cloneNode(true);
@@ -49,18 +52,17 @@ function removeSection(targetSection) {
 
 // Функция для отображения блока с картинкой
 function showPlaceholder() {
-  const placeholder = document.createElement('div');
+  
   placeholder.classList.add('placeholder');
 
-  const img = document.createElement('img');
+  
   img.classList.add('img_block')
   img.src = './images/TheEnd.jpg'; 
-  img.alt = 'Нет элементов';
+  img.alt = 'Сдесь должна быть картинка, но что то пошло не так';
 
   placeholder.append(img);
   document.body.append(placeholder);
 
-  const btnFirst = document.createElement('button');
   btnFirst.classList.add('button_first');
   btnFirst.textContent = 'Заново'
   placeholder.append(btnFirst)
@@ -69,3 +71,9 @@ function showPlaceholder() {
 // Привязываем события к первому блоку
 btnAdd.addEventListener('click', createSection);
 btnDelete.addEventListener('click', () => removeSection(section));
+
+btnFirst.addEventListener('click', () => {
+  placeholder.remove();
+  img.remove();
+  document.body.append(section);
+})

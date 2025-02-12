@@ -15,8 +15,8 @@
 }
 
 .block{
-  width: 600px;
-  height: 50px;
+  width: 75%;
+  height: 50%;
   display: flex;
   flex-direction: row;
   border: 1px solid rgb(27, 61, 229);
@@ -43,6 +43,10 @@
 }
 
 .block_buttons {
+  display: flex;align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
   margin-inline-end: 10px;
 }
 
@@ -96,6 +100,8 @@
 .img_block {
   border-radius: 50px;
   box-shadow: 0 5px 20px 26px rgb(5, 20, 56), 0 10px 10px rgb(108, 64, 64);
+  color: #ede6e6;
+  font-size: 20px;
 }
 
 .button_first {
@@ -119,4 +125,11 @@
   background-image: linear-gradient(120deg, #d2a206 0%, #f63803 100%);
   font-size: 33px;
   letter-spacing: 8px;
+  border: 4px solid #f28787;
 }
+
+/* @media (width >= 1024px) {
+
+  
+
+} */
