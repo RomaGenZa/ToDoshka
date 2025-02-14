@@ -16,6 +16,7 @@ section.classList.add('block');
 document.body.append(section);
 
 input.classList.add('input_field');
+input.placeholder = 'текст'
 section.append(input);
 
 block.classList.add('block_buttons');
@@ -26,18 +27,35 @@ btnAdd.textContent = 'Добавить';
 block.append(btnAdd);
 
 btnDelete.classList.add('delet_basket');
-btnDelete.textContent ='Удалить';
+btnDelete.textContent = 'Удалить';
 block.append(btnDelete);
 
 function createSection() {
-  const newSection = section.cloneNode(true);
+  const newSection = document.createElement('section');
+  newSection.className = 'block';
+  document.body.append(newSection);
 
-  const newBtnAdd = newSection.querySelector('.button_add');
-  const newBtnDelete = newSection.querySelector('.delet_basket');
+  const newinput = document.createElement('input');
+  newinput.className = 'input_field';
+  newinput.placeholder = 'текст'
+  newSection.append(newinput);
+
+  const newBlock = document.createElement('div');
+  newBlock.className = 'block_buttons';
+  newSection.append(newBlock);
+
+  const newBtnAdd = document.createElement('button');
+  newBtnAdd.className = 'button_add';
+  newBtnAdd.textContent = 'Добавить';
+  newBlock.append(newBtnAdd);
+
+  const newBtnDelete = document.createElement('button');
+  newBtnDelete.className = 'delet_basket';
+  newBtnDelete.textContent = 'Удалить';
+  newBlock.append(newBtnDelete);
 
   newBtnAdd.addEventListener('click', createSection);
   newBtnDelete.addEventListener('click', () => removeSection(newSection));
-  document.body.append(newSection);
 }
 
 // Функция для удаления блока и проверки, остались ли ещё элементы
@@ -54,7 +72,6 @@ function removeSection(targetSection) {
 function showPlaceholder() {
   
   placeholder.classList.add('placeholder');
-
   
   img.classList.add('img_block')
   img.src = './images/TheEnd.jpg'; 
@@ -64,8 +81,8 @@ function showPlaceholder() {
   document.body.append(placeholder);
 
   btnFirst.classList.add('button_first');
-  btnFirst.textContent = 'Заново'
-  placeholder.append(btnFirst)
+  btnFirst.textContent = 'Заново';
+  placeholder.append(btnFirst);
 }
 
 // Привязываем события к первому блоку
@@ -73,6 +90,7 @@ btnAdd.addEventListener('click', createSection);
 btnDelete.addEventListener('click', () => removeSection(section));
 
 btnFirst.addEventListener('click', () => {
+  input.value = '';
   placeholder.remove();
   img.remove();
   document.body.append(section);
