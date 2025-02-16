@@ -35,8 +35,8 @@
 }
 
 .input_field {
-  width: 340px;
-  height: 30px;
+  width: 50%;
+  height: 20%;
   background-color: rgb(182, 219, 249);
   color: rgb(0, 0, 0);
   font-size: 20px;
@@ -135,8 +135,8 @@
   border: 4px solid #f28787;
 }
 
-/* @media (width >= 1024px) {
-
-  
-
-} */
+@media (width <= 650px) {
+  .block{
+    flex-direction: column;
+  }
+}
